@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  test:
+    image: amazoncorretto:17-alpine3.18-full
+    container_name: crudService
+    volumes:
+      - ${MY_WORKSPACE}:/ws
+    working_dir: /ws${WORKSPACE_PATH:-/}
+    user: ${MY_USER:-root}
+    environment:
+      USERNAME_REPOSITORY: appuser
+      PASSWORD_REPOSITORY: acople
+    env_file:
+      - env_test.env
