@@ -1,6 +1,6 @@
 package io.edwinjmunoz.crud.service;
 
-import io.edwinjmunoz.crud.model.entities.User;
+import io.edwinjmunoz.crud.model.dto.UserDTO;
 import io.edwinjmunoz.crud.model.request.CreateUserRequest;
 import io.edwinjmunoz.crud.model.response.CreateUserResponse;
 
@@ -11,7 +11,10 @@ public interface UserService {
 
     CreateUserResponse createUser(CreateUserRequest request);
 
-    Optional<User> findUserById(String userId);
+    Optional<UserDTO> findUserById(String userId);
 
-    List<User> getAllUsers();
+    Optional<UserDTO> findUserByEmail(String email);
+
+    List<UserDTO> getAllUsers();
+
 }

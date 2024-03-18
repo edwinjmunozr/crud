@@ -2,7 +2,7 @@ package io.edwinjmunoz.crud.controller;
 
 
 import io.edwinjmunoz.crud.model.dto.UserDTO;
-import io.edwinjmunoz.crud.model.entities.User;
+import io.edwinjmunoz.crud.model.entity.User;
 import io.edwinjmunoz.crud.model.request.CreateUserRequest;
 import io.edwinjmunoz.crud.model.response.CreateUserResponse;
 import io.edwinjmunoz.crud.service.UserService;
@@ -32,7 +32,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Operation(summary = "Create a new user")
+    @Operation(summary = "Create new user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "user created", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = UserDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid request supplied", content = @Content),
@@ -50,8 +50,8 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Users not found", content = @Content)})
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<User>> findAll() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> findAll() {
+        List<UserDTO> users = userService.getAllUsers();
         if (users.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -66,8 +66,8 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content)})
     @GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<User> findById(@Parameter(description = "id of user to be searched") @PathVariable("id") String id) {
-        Optional<User> userDate = userService.findUserById(id);
+    public ResponseEntity<UserDTO> findById(@Parameter(description = "id of user to be searched") @PathVariable("id") String id) {
+        Optional<UserDTO> userDate = userService.findUserById(id);
         if (userDate.isPresent()) {
             return new ResponseEntity<>(userDate.get(), HttpStatus.OK);
         }
