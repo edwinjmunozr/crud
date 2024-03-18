@@ -1,13 +1,34 @@
 
+
 # CRUD Service API
 
-A brief description of what this project does and who it's for
+Este proyectos es una aplicación que expone una **API Restful** para la creacion de usuarios.
+
+Este proyecto está basado en el siguiente documento [TallerJava](/docs/ejercicio_java.pdf), luego todas las funcionalidades que no estan implicitas en el documento se han adicionado como mejoras al proceso.
+
+## Como usar la aplicación
+
+Para poder usar los endpoint que expone la API para el manejo de usuario (**/api/users**) se debe seguir los siguientes dos pasos:
+
+1.- Primero se debe autenticar como usuario. Por defecto cuando se inicia la aplicacion se crea el usuario **admin** el cual tiene email: **admin@youdomain.com** y clave: **Colombia123#**
+
+ ![Login Request](/docs/login_request.png)
+
+ ![Login Request postman](/docs/login_ok.png)
+
+
+2.- Utilizar el **token** que se retorna en el proceso anterior y usarlo en la cabecera de autenticacion en las siguientes peticiones (request).
+
+![Requet example](/docs/get_all_users.png)
 
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/index.html**
+[**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
 
+
+ ![API](/docs/swagger.png)
 
 ## API Reference
 
@@ -47,9 +68,13 @@ Takes two numbers and returns the sum.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+**`EMAIL_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato del correo.
 
-`ANOTHER_API_KEY`
+**`PASSWD_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato o conetenido del password al momento de crear al usuario.
+
+**`JWT_KEY`**: esta variable define la clave privada que se utilizará para firmar los token jwt generados por la aplicacion.
+
+`API_KEY`
 
 
 ## Deployment
@@ -83,4 +108,6 @@ Install my-project with npm
 ## Feedback
 
 If you have any feedback, please reach out to us at edwinjmunoz@gmail.com
+
+
 

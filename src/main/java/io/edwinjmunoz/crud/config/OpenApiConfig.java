@@ -43,7 +43,6 @@ public class OpenApiConfig {
                 .description("This API exposes endpoints to CRUD operations.")
                 .termsOfService("https://termify.io/")
                 .license(myLicense);
-
         //return new OpenAPI().info(info).servers(List.of(devServer, prodServer));
         return new OpenAPI().info(info);
     }

@@ -84,7 +84,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler({AuthenticationException.class})
-    public ResponseEntity<Object> handleAuthException(BadCredentialsException ex) {
+    public ResponseEntity<Object> handleAuthException(AuthenticationException ex) {
 
         Map<String, Object> body = new HashMap<>();
         body.put(MESSAGE_LABEL, ex.getMessage());

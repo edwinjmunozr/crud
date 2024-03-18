@@ -57,15 +57,12 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             }
         } catch (Exception ex) {
             log.error("Error en JwtAuthorizationFilter.doFilterInternal(): ", ex);
-
             Map<String, Object> errorDetails = new HashMap<>();
             errorDetails.put("message", "Authentication Error");
             errorDetails.put("details", ex.getMessage());
             response.setStatus(HttpStatus.FORBIDDEN.value());
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-
             mapper.writeValue(response.getWriter(), errorDetails);
-
         }
         filterChain.doFilter(request, response);
     }

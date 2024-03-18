@@ -45,7 +45,8 @@ public class SecurityConfig {
             "/v3/API-docs",
             "/api-docs/**",
             "/swagger-resources/**",
-            "/swagger-ui/**"
+            "/swagger-ui/**",
+            "/h2-console/**"
     };
 
     @Bean
@@ -53,7 +54,6 @@ public class SecurityConfig {
 
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
         http

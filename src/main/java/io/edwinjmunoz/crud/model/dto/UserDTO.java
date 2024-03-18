@@ -1,7 +1,7 @@
 package io.edwinjmunoz.crud.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.edwinjmunoz.crud.model.PhoneNumber;
+import io.edwinjmunoz.crud.model.request.PhoneNumber;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

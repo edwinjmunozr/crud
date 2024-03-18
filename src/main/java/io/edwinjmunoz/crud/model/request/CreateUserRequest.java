@@ -1,6 +1,5 @@
 package io.edwinjmunoz.crud.model.request;
 
-import io.edwinjmunoz.crud.model.PhoneNumber;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

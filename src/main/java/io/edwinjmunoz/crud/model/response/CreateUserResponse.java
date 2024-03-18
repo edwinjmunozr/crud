@@ -1,7 +1,7 @@
 package io.edwinjmunoz.crud.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.edwinjmunoz.crud.model.PhoneNumber;
+import io.edwinjmunoz.crud.model.request.PhoneNumber;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +24,6 @@ public class CreateUserResponse {
     private String name;
 
     @JsonProperty("email")
-    //@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",flags = Pattern.Flag.CASE_INSENSITIVE)
     private String email;
 
     @JsonProperty("password")

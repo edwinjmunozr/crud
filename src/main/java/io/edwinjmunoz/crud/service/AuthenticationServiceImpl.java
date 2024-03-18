@@ -4,8 +4,6 @@ import io.edwinjmunoz.crud.model.request.LoginRequest;
 import io.edwinjmunoz.crud.model.response.LoginResponse;
 import io.edwinjmunoz.crud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,8 +16,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    Logger log = LoggerFactory.getLogger(AuthenticationServiceImpl.class);
-
     @Autowired
     JwtService jwtService;
 
@@ -31,22 +27,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public LoginResponse signin(LoginRequest request) throws AuthenticationException {
-        try {
-            String email = request.getEmail().trim().toLowerCase();
-            String password = request.getPassword();
 
-            Authentication authentication =
-                    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        String email = request.getEmail().trim().toLowerCase();
+        String password = request.getPassword();
 
-            UserDetails user = (UserDetails) authentication.getPrincipal();
-            String username = authentication.getName();
-            String jwt = jwtService.generateToken(user);
-            userRepository.updateLastLoginByEmail(jwt, username);
-            return new LoginResponse(username, jwt);
-        } catch (Exception ex) {
-            log.error("Authentication error", ex);
-            throw ex;
-        }
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        String username = authentication.getName();
+        String jwt = jwtService.generateToken(user);
+        userRepository.updateLastLoginByEmail(jwt, username);
+        return new LoginResponse(username, jwt);
     }
 
 }

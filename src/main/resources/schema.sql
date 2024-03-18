@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS users;
-
 CREATE TABLE users(
   id                 varchar (100) not null,
   name               varchar (100) not null,
@@ -30,8 +28,6 @@ COMMENT ON COLUMN users.last_login IS 'Last login date';
 COMMENT ON COLUMN users.role IS 'User role: [admin, user]';
 
 
-DROP TABLE IF EXISTS users_phones;
-
 CREATE TABLE users_phones(
   id                 varchar (100) not null,
   user_id            varchar (100) not null,
@@ -50,8 +46,4 @@ COMMENT ON COLUMN users_phones.user_id IS 'UserId code';
 COMMENT ON COLUMN users_phones.phone_number IS 'Phone number';
 COMMENT ON COLUMN users_phones.city_code IS 'City code';
 COMMENT ON COLUMN users_phones.country_code IS 'Country code';
-
-
-insert into users(id,name,email,password,token,active,created_at,modified_at,last_login,role)
-values('5ad033e2c7874d12b987ea874c0a7f1d','Admin','admin@youdomain.com','$2a$10$k68S1.LYOHD8fG38UlfCKO51pvpC2yt/QIH8hxUHE7iVfTudxAqB6','token','t',current_timestamp,current_timestamp,current_timestamp,'ADMIN');
 

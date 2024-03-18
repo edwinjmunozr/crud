@@ -2,12 +2,12 @@ package io.edwinjmunoz.crud.service;
 
 import io.edwinjmunoz.crud.exceptions.ErrorMessage;
 import io.edwinjmunoz.crud.exceptions.InvalidRequestException;
-import io.edwinjmunoz.crud.model.PhoneNumber;
 import io.edwinjmunoz.crud.model.Role;
 import io.edwinjmunoz.crud.model.dto.UserDTO;
 import io.edwinjmunoz.crud.model.entity.User;
 import io.edwinjmunoz.crud.model.entity.UserPhone;
 import io.edwinjmunoz.crud.model.request.CreateUserRequest;
+import io.edwinjmunoz.crud.model.request.PhoneNumber;
 import io.edwinjmunoz.crud.model.response.CreateUserResponse;
 import io.edwinjmunoz.crud.repository.UserRepository;
 import io.edwinjmunoz.crud.util.PatternValidator;
@@ -49,6 +49,10 @@ public class UserServiceImpl implements UserService {
     public CreateUserResponse createUser(CreateUserRequest request) throws InvalidRequestException {
 
         try {
+
+            log.info("emailPattern={}", emailPattern);
+            log.info("passwordPattern={}", passwordPattern);
+
             checkCreateUserRequest(request);
 
             Optional<User> userSearch = userRepository.findByEmail(request.getEmail());
