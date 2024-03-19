@@ -6,7 +6,7 @@ Este proyectos es una aplicación que expone una **API Restful** para la creacio
 
 Este proyecto está basado en el siguiente documento [TallerJava](/docs/ejercicio_java.pdf), luego todas las funcionalidades que no estan implicitas en el documento se han adicionado como mejoras al proceso.
 
-## Como usar la aplicación
+## How to use
 
 Para poder usar los endpoint que expone la API para el manejo de usuario (**/api/users**) se debe seguir los siguientes dos pasos:
 
@@ -25,8 +25,9 @@ En esta imagen observamos la formo como se haria utilizando postman.
 
 ![Requet example](/docs/get_all_users.png)
 
+**Nota**: Cada usuario creado en la aplicacion puede loguearse.
 
-## Documentación
+## Documentation
 
 La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/index.html**
 [**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
@@ -37,7 +38,7 @@ La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/
  
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+Para ejecutar este proyecto usted necesita adicionar o definir las siguientes variables de ambientes en su .env file
 
 **`EMAIL_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato del correo.
 
@@ -45,14 +46,20 @@ To run this project, you will need to add the following environment variables to
 
 **`JWT_KEY`**: esta variable define la clave privada que se utilizará para firmar los token jwt generados por la aplicacion.
 
+**NOTA**: Las variables de ambientes tienen definido un valor por defecto. Si desea cambairlo por favor revise el archivo **Dockerfile** en el proyecto.
 
 ## Deployment
 
 Para ejecutar el proyecto por favor siga los siguientes pasos:
 
-1.- Instale, actualice y/o valide que tenga instalado docker.
+1.- Instale, actualice, valide y/o verifique que tenga el servicio de docker instalado y funcionando.
 
-2.- Descargue el codigo fuente del repositorio.
+2.- Descargue el código fuente del repositorio en GitHub.
+
+```bash
+  https://github.com/edwinjmunozr/crud.git
+```
+
 
 3.- Cree la imagen docker del proyecto.
 
@@ -117,6 +124,14 @@ La siguiente imagen muestra una peticion completa:
 
 ## Tech Stack
 
+La siguiente imagen muestra las principales tecnologias que se usan en este proyecto. 
+
+1.- Base de datos en memoria con **H2**.
+
+2.- La version que se utiliza de spring es 3.2.3.
+
+3.- Se utiliza JDK 17
+
 
 ![Technologias](/docs/technologies.png)
 
@@ -128,7 +143,7 @@ El Modelo Entidad Relación (MER) que se utiliza es el siguiente.
 ![Diagrama MER](/docs/crud_users_mer.png)
 
 
-## Diagrama de paquetes
+## Packages Diagram
 
 La siguiente imagen muestra el diagrama de conexion entre los paquetes que component en proyecto.
 
