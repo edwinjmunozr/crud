@@ -51,7 +51,9 @@ La siguiente imagen muestra una peticion completa:
  
  ![AddUser](/docs/users_add.png)
 
-Nota: La aplicación no permite la duplicidad del email de los usuario.
+**Nota**: La aplicación no permite la duplicidad del email de los usuario.
+
+ ![AddUser Error](/docs/users_add_error_email.png)
 
 #### Get all users
 
@@ -62,6 +64,9 @@ Nota: La aplicación no permite la duplicidad del email de los usuario.
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `Authorization` | `string` | **Required**. JWT (Header)|
+
+
+ ![All Users](/docs/get_all_users.png)
 
 #### Get user
 
@@ -74,14 +79,12 @@ Nota: La aplicación no permite la duplicidad del email de los usuario.
 | `Authorization` | `string` | **Required**. JWT (Header) |
 | `id`      | `string` | **Required**. Id of user to fetch |
 
-
+![User by Id](/docs/users_find_by_id.png)
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
 
-**Server:** Node, Express
-
+![Technologias](/docs/technologies.png)
 
 ## Environment Variables
 
@@ -93,26 +96,29 @@ To run this project, you will need to add the following environment variables to
 
 **`JWT_KEY`**: esta variable define la clave privada que se utilizará para firmar los token jwt generados por la aplicacion.
 
-`API_KEY`
-
 
 ## Deployment
 
-To deploy this project run
+Para ejecutar el proyecto por favor siga los siguientes pasos:
+
+1.- Instale, actualice y/o valide que tenga instalado docker.
+
+2.- Descargue el codigo fuente del repositorio.
+
+3.- Cree la imagen docker del proyecto.
 
 ```bash
-  npm run deploy
+  docker build -t crud:1.0 . [ENTER]
 ```
 
-
-## Installation
-
-Install my-project with npm
+4.- Ejecute o lance el contenedor docker con la imagen que acaba de generar
 
 ```bash
-  npm install my-project
-  cd my-project
+  docker run -d -it --name apicrud -p 8080:8080 crud:1.0 [ENTER]
 ```
+
+5.- Espere unos segundos mientras se crea el contenedor y luego que el servicio este funcionando. Una forma de hacerlo es revisando si la documentacion del proyecto esta habilitada: [**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
+
     
 ## Screenshots
 
