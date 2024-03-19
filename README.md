@@ -26,7 +26,7 @@ En esta imagen observamos la formo como se haria utilizando postman.
 ![Requet example](/docs/get_all_users.png)
 
 
-## Documentation
+## Documentación
 
 La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/index.html**
 [**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
@@ -35,6 +35,40 @@ La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/
  ![API](/docs/swagger.png)
 
  
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+**`EMAIL_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato del correo.
+
+**`PASSWD_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato o conetenido del password al momento de crear al usuario.
+
+**`JWT_KEY`**: esta variable define la clave privada que se utilizará para firmar los token jwt generados por la aplicacion.
+
+
+## Deployment
+
+Para ejecutar el proyecto por favor siga los siguientes pasos:
+
+1.- Instale, actualice y/o valide que tenga instalado docker.
+
+2.- Descargue el codigo fuente del repositorio.
+
+3.- Cree la imagen docker del proyecto.
+
+```bash
+  docker build -t crud:1.0 . [ENTER]
+```
+
+4.- Ejecute o lance el contenedor docker con la imagen que acaba de generar
+
+```bash
+  docker run -d -it --name apicrud -p 8080:8080 crud:1.0 [ENTER]
+```
+
+5.- Espere unos segundos mientras se crea el contenedor y luego que el servicio este funcionando. Una forma de hacerlo es revisando si la documentacion del proyecto esta habilitada: [**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
+
+
 ## API Reference
 
 #### Add new user
@@ -86,43 +120,27 @@ La siguiente imagen muestra una peticion completa:
 
 ![Technologias](/docs/technologies.png)
 
-## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+## MER Diagram
 
-**`EMAIL_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato del correo.
+El Modelo Entidad Relación (MER) que se utiliza es el siguiente. 
 
-**`PASSWD_PATTER`**: esta variable permite definir la expresion regular (regexp) que se utilizará para validar el formato o conetenido del password al momento de crear al usuario.
-
-**`JWT_KEY`**: esta variable define la clave privada que se utilizará para firmar los token jwt generados por la aplicacion.
+![Diagrama MER](/docs/crud_users_mer.png)
 
 
-## Deployment
+## Diagrama de paquetes
 
-Para ejecutar el proyecto por favor siga los siguientes pasos:
+La siguiente imagen muestra el diagrama de conexion entre los paquetes que component en proyecto.
 
-1.- Instale, actualice y/o valide que tenga instalado docker.
+![Estructura del Proyecto](/docs/project_structure.png)
 
-2.- Descargue el codigo fuente del repositorio.
 
-3.- Cree la imagen docker del proyecto.
+![Paquetes](/docs/packages.png)
 
-```bash
-  docker build -t crud:1.0 . [ENTER]
-```
 
-4.- Ejecute o lance el contenedor docker con la imagen que acaba de generar
+ ## Screenshots
 
-```bash
-  docker run -d -it --name apicrud -p 8080:8080 crud:1.0 [ENTER]
-```
-
-5.- Espere unos segundos mientras se crea el contenedor y luego que el servicio este funcionando. Una forma de hacerlo es revisando si la documentacion del proyecto esta habilitada: [**Swagger**](http://localhost:8080/api/swagger-ui/index.html)
-
-    
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Validacion](/docs/password_validation_1.png)
 
 
 ## Authors

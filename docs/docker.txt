@@ -1,6 +1,0 @@
-Information: //TODO: Expresiones regulares https://dev.to/rasaf_ibrahim/write-regex-password-validation-like-a-pro-5175
-
-Paso 1.- Crear imagen docker de la aplicacion
-	docker build -t crud:1.0 .
-Paso 2.-  Ejecutar una instancia de la imagen en un contenedor	
-    docker run -d -it --name crud-user -p 8080:8080 crud:1.0
