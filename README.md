@@ -12,12 +12,16 @@ Para poder usar los endpoint que expone la API para el manejo de usuario (**/api
 
 1.- Primero se debe autenticar como usuario. Por defecto cuando se inicia la aplicacion se crea el usuario **admin** el cual tiene email: **admin@youdomain.com** y clave: **Colombia123#**
 
+La siguiente imagen muestra la forma como se realiza la peticion.
+
  ![Login Request](/docs/login_request.png)
 
+
+En esta imagen observamos la formo como se haria utilizando postman.
  ![Login Request postman](/docs/login_ok.png)
 
 
-2.- Utilizar el **token** que se retorna en el proceso anterior y usarlo en la cabecera de autenticacion en las siguientes peticiones (request).
+2.- Utilizar el **token** que se retorna en el paso anterior y usarlo en la cabecera como medio de autenticacion en las siguientes peticiones (request).
 
 ![Requet example](/docs/get_all_users.png)
 
@@ -30,9 +34,26 @@ La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/
 
  ![API](/docs/swagger.png)
 
+ 
 ## API Reference
 
-#### Get all items
+#### Add new user
+
+```http
+  POST /api/users
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Authorization` | `string` | **Required**. JWT (Header)|
+
+La siguiente imagen muestra una peticion completa:
+ 
+ ![AddUser](/docs/users_add.png)
+
+Nota: La aplicación no permite la duplicidad del email de los usuario.
+
+#### Get all users
 
 ```http
   GET /api/users
@@ -40,9 +61,9 @@ La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+| `Authorization` | `string` | **Required**. JWT (Header)|
 
-#### Get item
+#### Get user
 
 ```http
   GET /api/users/${id}
@@ -50,11 +71,9 @@ La documentacion del proyecto la encuentra en la url relativa **/api/swagger-ui/
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `Authorization` | `string` | **Required**. JWT (Header) |
+| `id`      | `string` | **Required**. Id of user to fetch |
 
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
 
 
 ## Tech Stack
