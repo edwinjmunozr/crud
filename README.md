@@ -150,6 +150,14 @@ La siguiente imagen muestra el diagrama de conexion entre los paquetes que compo
 ![Estructura del Proyecto](/docs/project_structure.png)
 
 
+* **controller**: Clases que reciben las solicitudes (request) de los usuarios final
+* **services**: Clases que implementan la lógica del negocio
+* **repository**: Clases que procesan datos de la base de datos
+* **entities**: Modelos de datos que se almacenan en la base de datos
+* **model**: Clases que representan los datos de entrada, salida e intercambio de informacion entre los paquetes
+* **utils**: Clases con funcionalidades  y/o utilidades que son comunes o utilizas por varios paquetes
+* **librerias**: Clases y funcionalidades requeridas por la logica de negocio las cuales no externas al proyecto.
+
 ![Paquetes](/docs/packages.png)
 
 
