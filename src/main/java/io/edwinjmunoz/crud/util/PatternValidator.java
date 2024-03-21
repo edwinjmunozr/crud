@@ -16,7 +16,7 @@ public final class PatternValidator {
     public static boolean validateEmail(String emailPattern, String email) {
         Pattern pattern;
         if (emailPattern != null && !emailPattern.trim().isEmpty()) {
-            pattern = Pattern.compile(emailPattern);
+            pattern = Pattern.compile(emailPattern.trim());
         } else {
             pattern = Pattern.compile(DEFAULT_EMAIL_PATTERN);
         }
@@ -28,7 +28,7 @@ public final class PatternValidator {
     public static boolean validatePassword(String passwordPattern, String password) {
         Pattern pattern;
         if (passwordPattern != null && !passwordPattern.trim().isEmpty()) {
-            pattern = Pattern.compile(passwordPattern);
+            pattern = Pattern.compile(passwordPattern.trim());
         } else {
             pattern = Pattern.compile(DEFAULT_PASSWORD_PATTERN);
         }

@@ -1,0 +1,17 @@
+{
+  "name": "Pedro Smith",
+  "email": "pedrosmith@youdomain.com",
+  "password": "Cdefr&21",
+  "phones": [
+    {
+      "number": "30022358752",
+      "citycode": "143",
+      "countrycode": "55"
+    },
+    {
+      "number": "32402475487",
+      "citycode": "244",
+      "countrycode": "56"
+    }
+  ]
+}

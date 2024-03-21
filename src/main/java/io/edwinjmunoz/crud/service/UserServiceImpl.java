@@ -49,7 +49,6 @@ public class UserServiceImpl implements UserService {
     public CreateUserResponse createUser(CreateUserRequest request) throws InvalidRequestException {
 
         try {
-
             log.info("emailPattern={}", emailPattern);
             log.info("passwordPattern={}", passwordPattern);
 

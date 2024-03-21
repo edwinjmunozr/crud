@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS users_phones;
+DROP TABLE IF EXISTS users;
+
+
 CREATE TABLE users(
   id                 varchar (100) not null,
   name               varchar (100) not null,
@@ -26,7 +30,6 @@ COMMENT ON COLUMN users.created_at IS 'Creation date';
 COMMENT ON COLUMN users.modified_at IS 'Modification date';
 COMMENT ON COLUMN users.last_login IS 'Last login date';
 COMMENT ON COLUMN users.role IS 'User role: [admin, user]';
-
 
 CREATE TABLE users_phones(
   id                 varchar (100) not null,
